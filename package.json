@@ -18,6 +18,7 @@
   "author": "Josue Evangelista Cruz",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^2.0.22",
     "standard": "^17.1.0"
   },
   "eslintConfig": {
