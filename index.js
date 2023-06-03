@@ -1,14 +1,8 @@
-const express = require('express')
+require('dotenv').config()
+const server = require('./src/server')
 
-const server = express()
+const { SERVER_PORT } = process.env
 
-server.use('/', (req, res) => {
-  res.status(200).send({
-    code: 200,
-    data: 'Hello World'
-  })
-})
-
-server.listen(3000, () => {
-  console.log('server online on port 3000')
+server.listen(SERVER_PORT, () => {
+  console.log(`server listening on port ${SERVER_PORT}`)
 })
