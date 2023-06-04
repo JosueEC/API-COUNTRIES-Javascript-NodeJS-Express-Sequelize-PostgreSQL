@@ -4,6 +4,7 @@ module.exports = (database) => {
   database.define('country', {
     id: {
       type: DataTypes.STRING,
+      primaryKey: true,
       unique: true,
       allowNull: false,
       validate: {
