@@ -23,4 +23,7 @@ country.belongsTo(continent)
 country.belongsToMany(activity, { through: 'country-activity', foreignKey: 'country_id' })
 activity.belongsToMany(country, { through: 'country-activity', foreignKey: 'activity_id' })
 
-module.exports = database
+module.exports = {
+  database,
+  ...database.models
+}
