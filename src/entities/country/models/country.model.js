@@ -157,5 +157,9 @@ module.exports = (database) => {
         }
       }
     }
+  },
+  {
+    timestamps: false,
+    freezeTableName: true
   })
 }
