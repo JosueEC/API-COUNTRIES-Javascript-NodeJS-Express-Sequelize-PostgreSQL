@@ -94,6 +94,6 @@ module.exports = (database) => {
   },
   {
     timestamps: false,
-    frezzeTable: true
+    freezeTableName: true
   })
 }
