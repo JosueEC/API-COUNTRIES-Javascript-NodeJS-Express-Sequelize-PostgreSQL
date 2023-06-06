@@ -1,15 +1,9 @@
 const { Router } = require('express')
+const countryController = require('../controllers/country.controller')
 
 const router = Router()
 
-// TODO: Create a handler for this function
 // GET | /countries
-router.use('/', (req, res) => {
-  res.status(200).send({
-    code: 200,
-    status: 'FOUND',
-    data: 'routes /countries'
-  })
-})
+router.use('/', countryController.getCountries)
 
 module.exports = router
