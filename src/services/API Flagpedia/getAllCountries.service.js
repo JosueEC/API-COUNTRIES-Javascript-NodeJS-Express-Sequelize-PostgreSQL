@@ -11,7 +11,8 @@ const getAllCountries = async () => {
       return data
     })
 
-  formatCountries(countries)
+  const newFormatCountries = formatCountries(countries)
+  return newFormatCountries
 }
 
 module.exports = { getAllCountries }

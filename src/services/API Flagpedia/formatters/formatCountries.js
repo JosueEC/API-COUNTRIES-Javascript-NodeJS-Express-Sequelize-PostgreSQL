@@ -1,22 +1,21 @@
 function formatCountries (arrayCountries) {
   const formattedCountries = arrayCountries.map((country) => {
     return {
-      id: country.cioc,
-      name: country.name.common,
-      official_name: country.name.official,
-      tag: country.name.common,
-      region: country.region,
-      subregion: country.subregion,
-      capital: country.capital,
+      id: country.cca3,
+      name: country.name.common.toLowerCase(),
+      official_name: country.name.official.toLowerCase(),
+      region: country.region.toLowerCase(),
+      subregion: country.subregion?.toLowerCase() || 'No Region',
+      capital: country.capital?.pop().toLowerCase() || 'No Capital',
       area: country.area,
       population: country.population,
       image: country.flags.png,
       map: country.maps.googleMaps,
-      continents: country.continents
+      continents: country.continents?.pop().toLowerCase()
     }
   })
 
-  console.info(formattedCountries)
+  return formattedCountries
 }
 
 module.exports = { formatCountries }
