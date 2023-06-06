@@ -3,6 +3,12 @@ const HTTP_FOUND = Object.freeze({
   STATUS: 'FOUND'
 })
 
+const HTTP_NOT_FOUND = Object.freeze({
+  CODE: 402,
+  STATUS: 'NOT FOUND'
+})
+
 module.exports = {
-  HTTP_FOUND
+  HTTP_FOUND,
+  HTTP_NOT_FOUND
 }
