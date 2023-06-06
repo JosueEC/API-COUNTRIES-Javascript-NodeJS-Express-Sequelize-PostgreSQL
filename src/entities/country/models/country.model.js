@@ -3,7 +3,7 @@ const DataTypes = require('sequelize')
 module.exports = (database) => {
   database.define('country', {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT('tiny'),
       primaryKey: true,
       unique: true,
       allowNull: false,
@@ -28,6 +28,9 @@ module.exports = (database) => {
         notEmpty: {
           msg: 'country name cannot be empty'
         },
+        isLowercase: {
+          msg: 'country name must be lowercase'
+        },
         len: {
           args: [2, 50],
           msg: 'country name must be between 2 and 50 characters'
@@ -42,26 +45,12 @@ module.exports = (database) => {
         notEmpty: {
           msg: 'official country name cannot be empty'
         },
+        isLowercase: {
+          msg: 'official country name must be lowercase'
+        },
         len: {
           args: [2, 50],
           msg: 'official country name must be between 2 and 50 characters'
-        }
-      }
-    },
-    tag: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notEmpty: {
-          msg: 'contry tag cannot be empty'
-        },
-        isLowercase: {
-          msg: 'country tag must be lowercase'
-        },
-        len: {
-          args: [2, 50],
-          msg: 'country tag must be between 2 and 50 characters'
         }
       }
     },
@@ -120,7 +109,9 @@ module.exports = (database) => {
         isNumeric: {
           msg: 'country area must be numerical value'
         },
-        isInt: true
+        isInt: {
+          msg: 'country area must be a valid integer value'
+        }
       }
     },
     population: {
@@ -129,6 +120,9 @@ module.exports = (database) => {
       validate: {
         isNumeric: {
           msg: 'country population must be numerical value'
+        },
+        isInt: {
+          msg: 'country population must be a valid integer value'
         }
       }
     },
