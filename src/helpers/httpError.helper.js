@@ -1,7 +1,7 @@
-const httpError = (res, error, errorCode) => {
-  res.status(errorCode).send({
-    code: Number(errorCode),
-    status: 'INTERNAL_SERVER_ERROR',
+const httpError = (res, error, errorObject) => {
+  res.status(errorObject.CODE).send({
+    code: errorObject.CODE,
+    status: errorObject.STATUS,
     error: error.message
   })
 }

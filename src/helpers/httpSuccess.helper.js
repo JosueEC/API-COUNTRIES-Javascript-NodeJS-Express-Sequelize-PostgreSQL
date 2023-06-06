@@ -1,7 +1,7 @@
-const httpSuccess = (res, data, successCode) => {
-  res.status(successCode).send({
-    code: Number(successCode),
-    status: 'FOUND',
+const httpSuccess = (res, data, successObject) => {
+  res.status(successObject.CODE).send({
+    code: successObject.CODE,
+    status: successObject.STATUS,
     data
   })
 }
