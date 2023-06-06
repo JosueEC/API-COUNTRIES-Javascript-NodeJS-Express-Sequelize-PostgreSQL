@@ -8,7 +8,13 @@ const HTTP_NOT_FOUND = Object.freeze({
   STATUS: 'NOT FOUND'
 })
 
+const HTTP_BAD_REQUEST = Object.freeze({
+  CODE: 400,
+  STATUS: 'BAD REQUEST'
+})
+
 module.exports = {
   HTTP_FOUND,
-  HTTP_NOT_FOUND
+  HTTP_NOT_FOUND,
+  HTTP_BAD_REQUEST
 }
