@@ -37,7 +37,7 @@ module.exports = (database) => {
         }
       }
     },
-    officialName: {
+    official_name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -51,22 +51,6 @@ module.exports = (database) => {
         len: {
           args: [2, 50],
           msg: 'official country name must be between 2 and 50 characters'
-        }
-      }
-    },
-    capital: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: 'capital country cannot be empty'
-        },
-        isLowercase: {
-          msg: 'capital country must be lowercase'
-        },
-        len: {
-          args: [2, 50],
-          msg: 'capital country must be between 2 and 50 characters'
         }
       }
     },
@@ -99,6 +83,22 @@ module.exports = (database) => {
         len: {
           args: [2, 50],
           msg: 'country subregion must be between 2 and 50 characters'
+        }
+      }
+    },
+    capital: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'capital country cannot be empty'
+        },
+        isLowercase: {
+          msg: 'capital country must be lowercase'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'capital country must be between 2 and 50 characters'
         }
       }
     },
@@ -139,7 +139,7 @@ module.exports = (database) => {
         }
       }
     },
-    maps: {
+    map: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -148,6 +148,22 @@ module.exports = (database) => {
         },
         isUrl: {
           msg: 'invalid format, must be an google maps URL'
+        }
+      }
+    },
+    continent: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'country continent cannot be empty'
+        },
+        isLowerCase: {
+          msg: 'country continent must be lowercase'
+        },
+        isIn: {
+          args: [['africa', 'america', 'asia', 'europa', 'oceania', 'antartida']],
+          msg: 'country continent must be a valid world continent'
         }
       }
     }

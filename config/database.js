@@ -15,10 +15,7 @@ defineCountry(database)
 defineContinent(database)
 defineActivity(database)
 
-const { country, continent, activity } = database.models
-
-continent.hasMany(country)
-country.belongsTo(continent)
+const { country, activity } = database.models
 
 country.belongsToMany(activity, { through: 'country-activity', foreignKey: 'country_id' })
 activity.belongsToMany(country, { through: 'country-activity', foreignKey: 'activity_id' })
