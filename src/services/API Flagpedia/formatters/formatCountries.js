@@ -11,7 +11,7 @@ function formatCountries (arrayCountries) {
       population: country.population,
       image: country.flags.png,
       map: country.maps.googleMaps,
-      continents: country.continents?.pop().toLowerCase()
+      continent: country.continents?.pop().toLowerCase()
     }
   })
 
