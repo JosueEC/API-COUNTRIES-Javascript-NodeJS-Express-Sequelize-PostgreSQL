@@ -5,6 +5,7 @@ const { database } = require('./config/database')
 const { SERVER_PORT } = process.env
 
 const { getAllCountries } = require('./src/services/API Flagpedia/getAllCountries.service')
+const { bulkCreateCountries } = require('./src/services/Database/bulkCreateCountries.service')
 
 database.sync({ alter: true })
   .then(() => {
@@ -19,7 +20,10 @@ database.sync({ alter: true })
 
 async function loadDatabase () {
   try {
-    await getAllCountries()
+    const countries = await getAllCountries()
+    await bulkCreateCountries(countries)
+
+    console.info('database loaded')
   } catch (error) {
     return error.message
   }
