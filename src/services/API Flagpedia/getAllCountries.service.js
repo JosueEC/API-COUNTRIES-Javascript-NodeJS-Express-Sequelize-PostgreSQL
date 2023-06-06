@@ -1,7 +1,8 @@
 require('dotenv').config()
 const fetch = require('node-fetch')
-
 const { API_DOMAIN } = process.env
+
+const { formatCountries } = require('./formatters/formatCountries')
 
 const getAllCountries = async () => {
   const countries = await fetch(`${API_DOMAIN}/countries`)
@@ -9,7 +10,8 @@ const getAllCountries = async () => {
     .then((data) => {
       return data
     })
-  return countries
+
+  formatCountries(countries)
 }
 
 module.exports = { getAllCountries }

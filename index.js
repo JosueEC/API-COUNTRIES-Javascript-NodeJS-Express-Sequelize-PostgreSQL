@@ -4,9 +4,12 @@ const { database } = require('./config/database')
 
 const { SERVER_PORT } = process.env
 
+const { getAllCountries } = require('./src/services/API Flagpedia/getAllCountries.service')
+
 database.sync({ alter: true })
   .then(() => {
-    server.listen(SERVER_PORT, () => {
+    server.listen(SERVER_PORT, async () => {
+      await getAllCountries()
       console.log(`server listening on port ${SERVER_PORT}`)
     })
   })
