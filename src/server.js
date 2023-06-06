@@ -14,6 +14,6 @@ server.get('/', (req, res) => {
   res.status(200).send('Hello World!')
 })
 
-server.get('/countries', countryRoutes)
+server.use('/countries', countryRoutes)
 
 module.exports = server
