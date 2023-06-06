@@ -7,12 +7,6 @@ const router = Router()
 router.get('/', countryController.getCountries)
 
 //  GET | /countries/:countryID
-router.get('/:idCountry', (req, res) => {
-  res.status(200).send({
-    code: 200,
-    status: 'FOUND',
-    data: 'country finded by ID'
-  })
-})
+router.get('/:countryID', countryController.getCountryByID)
 
 module.exports = router
