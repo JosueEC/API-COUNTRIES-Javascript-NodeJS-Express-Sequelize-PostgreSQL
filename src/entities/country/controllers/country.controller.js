@@ -14,6 +14,7 @@ const getCountries = async (req, res) => {
       ? await findByNameCountries(name)
       : await findAllCountries()
 
+    if (countriesFound.length === 0) throw new Error('no countries found')
     httpSuccess(res, countriesFound, HTTP_FOUND)
   } catch (error) {
     httpError(res, error, HTTP_NOT_FOUND)
