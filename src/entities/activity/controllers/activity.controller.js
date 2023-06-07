@@ -1,4 +1,4 @@
-const { HTTP_NOT_FOUND, HTTP_FOUND } = require('../../../constants/httpCodes.constants')
+const { HTTP_NOT_FOUND, HTTP_FOUND, HTTP_BAD_REQUEST, HTTP_CREATED } = require('../../../constants/httpCodes.constants')
 const { httpError } = require('../../../helpers/httpError.helper')
 const { httpSuccess } = require('../../../helpers/httpSuccess.helper')
 
@@ -13,4 +13,16 @@ const getActivities = async (req, res) => {
   }
 }
 
-module.exports = { getActivities }
+// TODO: Create the service for this handler
+const postActivity = async (req, res) => {
+  try {
+    httpSuccess(res, 'handler POST /activities', HTTP_CREATED)
+  } catch (error) {
+    httpError(res, error, HTTP_BAD_REQUEST)
+  }
+}
+
+module.exports = {
+  getActivities,
+  postActivity
+}

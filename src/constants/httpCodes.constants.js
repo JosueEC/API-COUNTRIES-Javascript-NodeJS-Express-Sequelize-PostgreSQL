@@ -1,3 +1,8 @@
+const HTTP_CREATED = Object.freeze({
+  CODE: 201,
+  STATUS: 'CREATED'
+})
+
 const HTTP_FOUND = Object.freeze({
   CODE: 302,
   STATUS: 'FOUND'
@@ -16,5 +21,6 @@ const HTTP_BAD_REQUEST = Object.freeze({
 module.exports = {
   HTTP_FOUND,
   HTTP_NOT_FOUND,
-  HTTP_BAD_REQUEST
+  HTTP_BAD_REQUEST,
+  HTTP_CREATED
 }
