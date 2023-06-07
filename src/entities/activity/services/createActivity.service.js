@@ -7,7 +7,7 @@ const createActivity = async ({ name, difficulty, duration, season, countries })
     duration,
     season
   })
-  activityCreated.addCountrys(countries)
+  activityCreated.addCountries(countries)
 
   return activityCreated
 }
