@@ -82,7 +82,7 @@ module.exports = (database) => {
         notEmpty: {
           msg: 'activity season cannot be empty'
         },
-        isLowerCase: {
+        isLowercase: {
           msg: 'activity season must be lowercase'
         },
         isIn: {
