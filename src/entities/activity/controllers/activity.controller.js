@@ -3,6 +3,7 @@ const { httpError } = require('../../../helpers/httpError.helper')
 const { httpSuccess } = require('../../../helpers/httpSuccess.helper')
 
 const { findAllActivities } = require('../services/findAllActivities.service')
+const { createActivity } = require('../services/createActivity.service')
 
 const getActivities = async (req, res) => {
   try {
@@ -13,10 +14,12 @@ const getActivities = async (req, res) => {
   }
 }
 
-// TODO: Create the service for this handler
 const postActivity = async (req, res) => {
   try {
-    httpSuccess(res, 'handler POST /activities', HTTP_CREATED)
+    const { name, difficulty, duration, season, countries } = req.body
+
+    const activityCreated = await createActivity({ name, difficulty, duration, season, countries })
+    httpSuccess(res, activityCreated, HTTP_CREATED)
   } catch (error) {
     httpError(res, error, HTTP_BAD_REQUEST)
   }
