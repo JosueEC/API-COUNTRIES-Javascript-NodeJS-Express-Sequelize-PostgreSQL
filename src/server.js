@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 
 const countryRoutes = require('./entities/country/routes/country.routes')
+const activityRoutes = require('./entities/activity/routes/activity.routes')
 
 const server = express()
 
@@ -15,5 +16,7 @@ server.get('/', (req, res) => {
 })
 
 server.use('/countries', countryRoutes)
+
+server.use('/activities', activityRoutes)
 
 module.exports = server
