@@ -3,12 +3,18 @@ const { httpError } = require('../../../helpers/httpError.helper')
 const { httpSuccess } = require('../../../helpers/httpSuccess.helper')
 
 const { findAllCountries } = require('../services/findAllCountries.service')
+const { findByNameCountries } = require('../services/findByNameCountries.service')
 const { findByPkCountry } = require('../services/findByPkCountry.service')
 
 const getCountries = async (req, res) => {
   try {
-    const countries = await findAllCountries()
-    httpSuccess(res, countries, HTTP_FOUND)
+    const { name } = req.query
+
+    const countriesFound = (name)
+      ? await findByNameCountries(name)
+      : await findAllCountries()
+
+    httpSuccess(res, countriesFound, HTTP_FOUND)
   } catch (error) {
     httpError(res, error, HTTP_NOT_FOUND)
   }
