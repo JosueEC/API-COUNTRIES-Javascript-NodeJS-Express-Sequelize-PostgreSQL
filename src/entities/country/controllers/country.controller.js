@@ -19,6 +19,8 @@ const getCountryByID = async (req, res) => {
     const { countryID } = req.params
 
     const countryFound = await findByPkCountry(countryID)
+
+    if (!countryFound) throw new Error('no country found')
     httpSuccess(res, countryFound, HTTP_FOUND)
   } catch (error) {
     httpError(res, error, HTTP_NOT_FOUND)
