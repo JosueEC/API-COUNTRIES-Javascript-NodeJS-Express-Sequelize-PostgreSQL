@@ -1,7 +1,14 @@
-const { country } = require('../../../../config/database')
+const { country, activity } = require('../../../../config/database')
 
 const findByPkCountry = async (countryID) => {
-  const countryFound = await country.findByPk(countryID)
+  const countryFound = await country.findByPk(countryID, {
+    include: {
+      model: activity,
+      attributes: ['id', 'name', 'dificulty', 'duration', 'season'],
+      through: { attributes: [] }
+    }
+  })
+
   return countryFound
 }
 
