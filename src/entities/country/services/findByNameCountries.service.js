@@ -6,7 +6,7 @@ const findByNameCountries = async (countryName) => {
     {
       where: {
         name: {
-          [Op.like]: `%${countryName}%`
+          [Op.like]: `%${countryName.toLowerCase()}%`
         }
       }
     })
