@@ -9,6 +9,8 @@ const findByPkCountry = async (countryID) => {
     }
   })
 
+  if (!countryFound) throw new Error('country not found')
+
   return countryFound
 }
 
