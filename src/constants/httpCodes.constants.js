@@ -4,7 +4,7 @@ const HTTP_CREATED = Object.freeze({
 })
 
 const HTTP_FOUND = Object.freeze({
-  CODE: 302,
+  CODE: 200,
   STATUS: 'FOUND'
 })
 
