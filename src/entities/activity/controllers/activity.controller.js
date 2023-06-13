@@ -16,9 +16,9 @@ const getActivities = async (req, res) => {
 
 const postActivity = async (req, res) => {
   try {
-    const { name, difficulty, duration, season, countries } = req.body
+    const { name, difficulty, duration, season, image, countries } = req.body
 
-    const activityCreated = await createActivity({ name, difficulty, duration, season, countries })
+    const activityCreated = await createActivity({ name, difficulty, duration, season, image, countries })
     httpSuccess(res, activityCreated, HTTP_CREATED)
   } catch (error) {
     httpError(res, error, HTTP_BAD_REQUEST)

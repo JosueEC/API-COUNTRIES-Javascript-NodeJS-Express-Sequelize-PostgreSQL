@@ -90,6 +90,18 @@ module.exports = (database) => {
           msg: 'activity season must be a valid season of the year.'
         }
       }
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'activity image cannot be empty'
+        },
+        isUrl: {
+          msg: 'invalid URL format, must be an URL image'
+        }
+      }
     }
   },
   {

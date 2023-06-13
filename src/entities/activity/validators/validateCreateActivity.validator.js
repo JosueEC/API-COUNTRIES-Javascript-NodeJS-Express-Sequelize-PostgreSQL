@@ -25,6 +25,10 @@ const validateCreateActivity = [
     .notEmpty()
     .isLowercase()
     .isIn(['verano', 'otoño', 'invierno', 'primavera']),
+  body('image')
+    .exists()
+    .notEmpty()
+    .isURL(),
   body('countries')
     .exists()
     .notEmpty()

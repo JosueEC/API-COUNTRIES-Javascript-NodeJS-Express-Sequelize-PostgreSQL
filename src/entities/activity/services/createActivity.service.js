@@ -1,11 +1,12 @@
 const { activity } = require('../../../../config/database')
 
-const createActivity = async ({ name, difficulty, duration, season, countries }) => {
+const createActivity = async ({ name, difficulty, duration, season, image, countries }) => {
   const activityCreated = await activity.create({
     name,
     difficulty,
     duration,
-    season
+    season,
+    image
   })
   activityCreated.addCountries(countries)
 
