@@ -1,10 +1,11 @@
-const { HTTP_NOT_FOUND, HTTP_FOUND } = require('../../../constants/httpCodes.constants')
+const { HTTP_NOT_FOUND, HTTP_FOUND, HTTP_BAD_REQUEST } = require('../../../constants/httpCodes.constants')
 const { httpError } = require('../../../helpers/httpError.helper')
 const { httpSuccess } = require('../../../helpers/httpSuccess.helper')
 
 const { findAllCountries } = require('../services/findAllCountries.service')
 const { findByNameCountries } = require('../services/findByNameCountries.service')
 const { findByPkCountry } = require('../services/findByPkCountry.service')
+const { findAllCountryIDs } = require('../services/findAllCountryIDs.service')
 
 const getCountries = async (req, res) => {
   try {
@@ -32,7 +33,17 @@ const getCountryByID = async (req, res) => {
   }
 }
 
+const getCountryIDs = async (req, res) => {
+  try {
+    const countryIDs = await findAllCountryIDs()
+    httpSuccess(res, countryIDs, HTTP_FOUND)
+  } catch (error) {
+    httpError(res, error, HTTP_BAD_REQUEST)
+  }
+}
+
 module.exports = {
   getCountries,
-  getCountryByID
+  getCountryByID,
+  getCountryIDs
 }
