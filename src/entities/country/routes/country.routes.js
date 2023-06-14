@@ -12,6 +12,6 @@ router.get('/', countryController.getCountries)
 router.get('/:countryID', validateGetCountryByID, countryController.getCountryByID)
 
 // GET | /countries/all/IDs
-router.get('/all/IDs', countryController.getCountryIDs)
+router.get('/all/flags', countryController.getCountryFlags)
 
 module.exports = router
