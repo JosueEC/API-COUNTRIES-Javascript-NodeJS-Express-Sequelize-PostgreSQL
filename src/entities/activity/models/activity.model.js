@@ -92,7 +92,7 @@ module.exports = (database) => {
       }
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         notEmpty: {
