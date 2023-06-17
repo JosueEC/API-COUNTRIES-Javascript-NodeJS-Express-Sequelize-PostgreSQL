@@ -1,5 +1,6 @@
 const { country } = require('../../../../config/database')
 const { Op } = require('sequelize')
+const { notModified } = require('../../../utils/not-modified')
 
 const findByNameCountries = async (countryName) => {
   const countriesFound = await country.findAll(
@@ -11,7 +12,7 @@ const findByNameCountries = async (countryName) => {
       }
     })
 
-  if (countriesFound.length === 0) throw new Error('no results')
+  if (countriesFound.length === 0) return notModified
 
   return countriesFound
 }
