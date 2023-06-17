@@ -17,7 +17,7 @@ const getCountries = async (req, res) => {
 
     httpSuccess(res, countriesFound, HTTP_FOUND)
   } catch (error) {
-    httpError(res, error, HTTP_NOT_FOUND)
+    httpError(res, error, HTTP_BAD_REQUEST)
   }
 }
 

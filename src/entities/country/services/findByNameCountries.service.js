@@ -11,6 +11,8 @@ const findByNameCountries = async (countryName) => {
       }
     })
 
+  if (countriesFound.length === 0) throw new Error('no results')
+
   return countriesFound
 }
 
