@@ -14,4 +14,7 @@ router.get('/:countryID', validateGetCountryByID, countryController.getCountryBy
 // GET | /countries/all/IDs
 router.get('/all/flags', countryController.getCountryFlags)
 
+// POST | /countries/bulk
+router.post('/create/bulk', countryController.postBulkCountries)
+
 module.exports = router

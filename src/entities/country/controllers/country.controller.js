@@ -1,4 +1,4 @@
-const { HTTP_NOT_FOUND, HTTP_FOUND, HTTP_BAD_REQUEST } = require('../../../constants/httpCodes.constants')
+const { HTTP_NOT_FOUND, HTTP_FOUND, HTTP_BAD_REQUEST, HTTP_CREATED, HTTP_INTERNAL_SERVER_ERROR } = require('../../../constants/httpCodes.constants')
 const { httpError } = require('../../../helpers/httpError.helper')
 const { httpSuccess } = require('../../../helpers/httpSuccess.helper')
 
@@ -6,6 +6,7 @@ const { findAllCountries } = require('../services/findAllCountries.service')
 const { findByNameCountries } = require('../services/findByNameCountries.service')
 const { findByPkCountry } = require('../services/findByPkCountry.service')
 const { findAllCountryFlags } = require('../services/findAllCountryFlags.service')
+const { bulkCreateCountries } = require('../../../services/Database/bulkCreateCountries.service')
 
 const getCountries = async (req, res) => {
   try {
@@ -42,8 +43,19 @@ const getCountryFlags = async (req, res) => {
   }
 }
 
+const postBulkCountries = async (req, res) => {
+  try {
+    const { countries } = req.body
+    await bulkCreateCountries(countries)
+    httpSuccess(res, 'Countries Created', HTTP_CREATED)
+  } catch (error) {
+    httpError(res, error, HTTP_INTERNAL_SERVER_ERROR)
+  }
+}
+
 module.exports = {
   getCountries,
   getCountryByID,
-  getCountryFlags
+  getCountryFlags,
+  postBulkCountries
 }
