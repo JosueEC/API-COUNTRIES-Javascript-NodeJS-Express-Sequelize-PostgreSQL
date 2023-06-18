@@ -2,7 +2,7 @@ require('dotenv').config()
 const server = require('./src/server')
 const { database } = require('./config/database')
 
-const { SERVER_PORT } = process.env
+const { SERVER_PORT: PORT } = process.env
 
 // const { findAllCountries } = require('./src/entities/country/services/findAllCountries.service')
 // const { getAllCountries } = require('./src/services/API Flagpedia/getAllCountries.service')
@@ -10,9 +10,9 @@ const { SERVER_PORT } = process.env
 
 database.sync({ alter: true })
   .then(() => {
-    server.listen(SERVER_PORT || 3000, () => {
+    server.listen(PORT || 3000, () => {
       // await loadDatabase()
-      console.log(`server listening on port ${SERVER_PORT || 3000}`)
+      console.log(`server listening on port ${PORT || 3000}`)
     })
   })
   .catch((error) => {
