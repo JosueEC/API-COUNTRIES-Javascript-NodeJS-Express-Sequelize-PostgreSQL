@@ -2,7 +2,7 @@ require('dotenv').config()
 const server = require('./src/server')
 const { database } = require('./config/database')
 
-const { SERVER_PORT: PORT } = process.env
+const { PORT } = process.env
 
 // const { findAllCountries } = require('./src/entities/country/services/findAllCountries.service')
 // const { getAllCountries } = require('./src/services/API Flagpedia/getAllCountries.service')
