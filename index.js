@@ -10,9 +10,9 @@ const { SERVER_PORT } = process.env
 
 database.sync({ alter: true })
   .then(() => {
-    server.listen(SERVER_PORT, () => {
+    server.listen(SERVER_PORT || 3000, () => {
       // await loadDatabase()
-      console.log(`server listening on port ${SERVER_PORT}`)
+      console.log(`server listening on port ${SERVER_PORT || 3000}`)
     })
   })
   .catch((error) => {
