@@ -23,6 +23,7 @@ module.exports = (database) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: {
           msg: 'activity name cannot be empty.'
@@ -94,6 +95,7 @@ module.exports = (database) => {
     image: {
       type: DataTypes.TEXT,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: {
           msg: 'activity image cannot be empty'
